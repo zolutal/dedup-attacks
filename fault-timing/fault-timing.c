@@ -21,15 +21,6 @@ void *alloc_page() {
     return mmap(0, 0x1000, PROT_READ|PROT_WRITE, MAP_ANON|MAP_PRIVATE, -1, 0);
 }
 
-void maccess(char *addr) { volatile char c = *addr; }
-
-uint64_t time_access(char *addr) {
-    uint64_t start = __rdtsc();
-    maccess(addr);
-    uint64_t end = __rdtsc();
-    return end-start;
-}
-
 int main() {
     void *page = alloc_page();
 
