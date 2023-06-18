@@ -1,4 +1,4 @@
-Files associated with my [blog post](https://zolutal.github.io/posts/2023/06/17/dedup-attacks.html) on memory deduplication attacks.
+Files associated with my [blog post](https://zolutal.github.io/dedup-attacks) on memory deduplication attacks.
 
 fault-timing: demonstrates timing differences between faulting and normal memory accesses
 
